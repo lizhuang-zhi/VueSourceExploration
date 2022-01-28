@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="container">
+    </div>
+
+    <script src="jslib/mustache.js"></script>
+    <script>
+        var templateStr = `
+            <h1>我买了一个{{thing}},好{{mood}}啊！！</h1>
+        `;
+
+        var data = {
+            thing: '苹果',
+            mood: '开心'            
+        };
+
+        /* 
+            使用正则表达式模拟实现数据填充
+            /\{\{(\w+)\}\}/g  => 匹配到 {{}} 里面的字母
+
+            ⭐️ replace()的第二个参数可以是一个函数，这个函数提供捕获的东西
+               的参数，就是 capturedStr（也可以命名$1),结合data对象进行智能的替换
+
+            @param: findStr 匹配到的字符串
+            @param: capturedStr 捕获到的字符串
+        */
+        console.log(templateStr.replace(/\{\{(\w+)\}\}/g, function(findStr, capturedStr) {
+            console.log(findStr);   // {{thing}}  {{mood}}
+            console.log(capturedStr);   // thing    mood
+            return data[capturedStr];  // 返回要替换成的内容
+        }));
+
+        /* 
+            封装成函数
+        */
+        function render(_templateStr, _data) {
+            return _templateStr.replace(/\{\{(\w+)\}\}/g, function(findStr, capturedStr) {
+                return _data[capturedStr];  
+            })
+        }
+        // 测试调用封装函数
+        let res = render(templateStr, data);
+        console.log(res);   // <h1>我买了一个苹果,好开心啊！！</h1>
+    </script>
+    
+</body>
+</html>

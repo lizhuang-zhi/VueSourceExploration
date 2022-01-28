@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>我是index.html，你好！</h1>
+
+    <script src="xuni/bundle.js"></script>
+
+    <script>
+        // var templateStr = `
+        //     我爱{{somebody}}, {{somebody}}也爱我，我考了{{a.b.c}}分数
+        // `;
+        // var data = {
+        //     somebody: '李小龙',
+        //     a: {
+        //         b: {
+        //             c: 100
+        //         }
+        //     }
+        // };
+
+        var templateStr = `
+            <ul>
+                {{#arr}}
+                    <li class='box'>
+                        {{name}}的爱好是：
+                        <ol>
+                            {{#hobbies}}
+                                <li>{{.}}</li>
+                            {{/hobbies}}
+                        </ol>
+                    </li>
+                {{/arr}}
+            <ul>
+        `;
+        var data = {
+            arr: [{
+                    name: 'kang',
+                    hobbies: ['代码', '学习']
+                },
+                {
+                    name: 'lei',
+                    hobbies: ['电影', '代码']
+                },
+                {
+                    name: 'li',
+                    hobbies: ['跳舞', '健身', '篮球']
+                },
+            ]
+        };
+
+        // 调用函数
+        var domStr = SSG_TemplateEngine.render(templateStr, data);
+        // console.log(domStr);
+    </script>
+
+</body>
+
+</html>
