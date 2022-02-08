@@ -12,7 +12,7 @@
     那么lookup(dataObj, 'a.b.c')结果就是100
 */
 export default function lookup(dataObj, keyName) {
-    // 如果keyName中存在.
+    // 如果keyName中存在. 并且 keyName 不能就直接是一个'.'
     if (keyName.indexOf('.') != -1 && keyName != '.') {
         let arr = keyName.split('.');
         let res = parseObj(dataObj, arr, 0);

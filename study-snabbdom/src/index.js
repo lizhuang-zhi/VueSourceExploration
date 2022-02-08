@@ -1,69 +1,50 @@
-import {
-    init,
-    classModule,
-    propsModule,
-    styleModule,
-    eventListenersModule,
-    h,
-} from "snabbdom";
+import h from './mysnabbdom/h';
+import patch from './mysnabbdom/patch';
 
-const patch = init([
-    // Init patch function with chosen modules
-    classModule, // makes it easy to toggle classes
-    propsModule, // for setting properties on DOM elements
-    styleModule, // handles styling on elements with support for animations
-    eventListenersModule, // attaches event listeners
-]);
+// const myVnode1 = h('h1', {}, [
+//     h('div', {}, 'A'),
+//     h('div', {}, 'B'),
+//     h('div', {}, 'C'),
+//     h('div', {}, [
+//         h('div', {}, '啦啦'),
+//         h('div', {}, '嘻嘻'),
+//     ]),
+// ]);
 
-const container = document.getElementById("container");
+// const myVnode1 = h('section', {}, [
+//     h('div', { key: 'A' }, 'A'),
+//     h('div', { key: 'B' }, 'B'),
+//     h('div', { key: 'C' }, 'C'),
+//     h('div', { key: 'D' }, 'D')
+// ]);
 
-const vnode = h("div#container.two.classes", {
-    on: {
-        click: function() {
+// const myVnode2 = h('section', {}, [
+//     h('div', { key: 'D' }, 'D'),
+//     h('div', { key: 'C' }, 'C'),
+//     h('div', { key: 'B' }, 'B'),
+//     h('div', { key: 'A' }, 'A')
+// ]);
 
-        }
-    }
-}, [
-    h("span", {
-        style: {
-            fontWeight: "bold"
-        }
-    }, "This is bold"),
-    " and this is just normal text",
-    h("a", {
-        props: {
-            href: "/foo"
-        }
-    }, "I'll take you places!"),
-]);
-// Patch into empty DOM element – this modifies the DOM as a side effect
-patch(container, vnode);
+// let myVnode1 = h('section', {}, [
+//     h('div', { key: 'A' }, 'A'),
+//     h('div', { key: 'B' }, 'B'),
+//     h('div', { key: 'C' }, 'C'),
+//     h('div', { key: 'D' }, 'D')
+// ]);
+// let myVnode2 = h('section', {}, [
+//     h('div', { key: 'D' }, 'D'),
+//     h('div', { key: 'A' }, 'A'),
+//     h('div', { key: 'C' }, 'C'),
+//     h('div', { key: 'Q' }, 'Q'),
+//     h('div', { key: 'B' }, 'B'),
+// ]);
 
-const newVnode = h(
-    "div#container.two.classes", {
-        on: {
-            click: function() {
-                
-            }
-        }
-    },
-    [
-        h(
-            "span", {
-                style: {
-                    fontWeight: "normal",
-                    fontStyle: "italic"
-                }
-            },
-            "This is now italic type"
-        ),
-        " and this is still just normal text",
-        h("a", {
-            props: {
-                href: "/bar"
-            }
-        }, "I'll take you places!"),
-    ]
-);
-// Second `patch` invocation
-patch(vnode, newVnode); // Snabbdom efficiently updates the old view to the new state
+let container = document.getElementById('container');
+
+let btn = document.getElementById('btn');
+
+patch(container, myVnode1);
+
+btn.onclick = function() {
+    patch(myVnode1, myVnode2);
+}

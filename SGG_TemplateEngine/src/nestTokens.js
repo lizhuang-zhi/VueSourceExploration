@@ -10,6 +10,7 @@ export default function nestTokens(tokens) {
     var collector = nestedTokens;
 
     for(let i = 0; i < tokens.length; i++) {
+        // 获取每一项token
         let token = tokens[i];
 
         switch(token[0]) {
@@ -31,7 +32,7 @@ export default function nestTokens(tokens) {
                 collector.push(token);
         }
     }
-    
+
     // 最终要获取的tokens数组
     console.log(nestedTokens);
     return nestedTokens;
