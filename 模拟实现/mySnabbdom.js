@@ -9,19 +9,19 @@
 let container = document.getElementById('container');
 
 // 创建虚拟节点
-let myVnode1 = h('section', {}, [
-    h('div', { key: 'A' }, 'A'),
-    h('div', { key: 'B' }, 'B'),
-    h('div', { key: 'C' }, 'C'),
-    h('div', { key: 'D' }, 'D')
-]);
-let myVnode2 = h('section', {}, [
-    h('div', { key: 'D' }, 'D'),
-    h('div', { key: 'A' }, 'A'),
-    h('div', { key: 'C' }, 'C'),
-    h('div', { key: 'Q' }, 'Q'),
-    h('div', { key: 'B' }, 'B'),
-]);
+// let myVnode1 = h('section', {}, [
+//     h('div', { key: 'A' }, 'A'),
+//     h('div', { key: 'B' }, 'B'),
+//     h('div', { key: 'C' }, 'C'),
+//     h('div', { key: 'D' }, 'D')
+// ]);
+// let myVnode2 = h('section', {}, [
+//     h('div', { key: 'D' }, 'D'),
+//     h('div', { key: 'A' }, 'A'),
+//     h('div', { key: 'C' }, 'C'),
+//     h('div', { key: 'Q' }, 'Q'),
+//     h('div', { key: 'B' }, 'B'),
+// ]);
 
 /* 
     有key和无key的对比

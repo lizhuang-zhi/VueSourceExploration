@@ -11,19 +11,19 @@ import patch from './mysnabbdom/patch';
 //     ]),
 // ]);
 
-// const myVnode1 = h('section', {}, [
-//     h('div', { key: 'A' }, 'A'),
-//     h('div', { key: 'B' }, 'B'),
-//     h('div', { key: 'C' }, 'C'),
-//     h('div', { key: 'D' }, 'D')
-// ]);
+const myVnode1 = h('section', {}, [
+    h('div', { key: 'A' }, 'A'),
+    h('div', { key: 'B' }, 'B'),
+    h('div', { key: 'C' }, 'C'),
+    h('div', { key: 'D' }, 'D')
+]);
 
-// const myVnode2 = h('section', {}, [
-//     h('div', { key: 'D' }, 'D'),
-//     h('div', { key: 'C' }, 'C'),
-//     h('div', { key: 'B' }, 'B'),
-//     h('div', { key: 'A' }, 'A')
-// ]);
+const myVnode2 = h('section', {}, [
+    h('div', { key: 'D' }, 'D'),
+    h('div', { key: 'C' }, 'C'),
+    h('div', { key: 'B' }, 'B'),
+    h('div', { key: 'A' }, 'A')
+]);
 
 // let myVnode1 = h('section', {}, [
 //     h('div', { key: 'A' }, 'A'),
