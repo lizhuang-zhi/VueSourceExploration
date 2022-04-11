@@ -1,0 +1,5 @@
+window.MVVM = require('./MVVM');
+
+
+
+

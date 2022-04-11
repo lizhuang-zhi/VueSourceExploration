@@ -31,7 +31,7 @@ export default function (templateString) {
             stack2.push({
                 "tag": tag,
                 "children": [],
-                'attrs': parseAttrsString(attrsSting) 
+                'attrs': parseAttrsString(attrsSting)  
             });
             // 得到attrs的字符串长度
             const attrsStringLength = attrsSting != null ? attrsSting.length : 0;
